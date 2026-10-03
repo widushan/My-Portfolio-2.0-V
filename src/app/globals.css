@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 255 255 255;
+  --surface: 255 255 255;
+  --ink: 17 24 20;
+  --muted: 92 104 98;
+  --line: 226 232 228;
+  --brand-text: 10 133 64;
+  --brand-soft: 232 248 238;
+}
+
+.dark {
+  --bg: 11 16 13;
+  --surface: 19 26 22;
+  --ink: 238 243 240;
+  --muted: 154 166 159;
+  --line: 38 48 42;
+  --brand-text: 52 210 123;
+  --brand-soft: 16 38 27;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  @apply bg-bg font-sans text-ink antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--brand-text));
+  outline-offset: 2px;
+}
+
+::selection {
+  background: #12b259;
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+:root {
+  --word-spacing: 0.12em;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+blockquote,
+dt {
+  word-spacing: var(--word-spacing);
+}
