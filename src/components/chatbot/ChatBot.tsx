@@ -298,22 +298,41 @@ export default function ChatBot() {
                         : "bg-brand-deep text-white rounded-tr-sm"
                     }`}
                   >
-                    {/* Render message text with basic formatting */}
+                    {/* Render message text with basic formatting (bold and links) */}
                     <div className="whitespace-pre-line leading-relaxed space-y-1">
                       {msg.text.split("\n").map((line, i) => {
-                        // Bold markdown parser: **text**
-                        const parts = line.split(/(\*\*.*?\*\*)/g);
+                        // Regex matches either **bold** or [label](url)
+                        const tokens = line.split(/(\*\*.*?\*\*|\[.*?\]\(.*?\))/g);
                         return (
                           <p key={i}>
-                            {parts.map((part, pIdx) => {
-                              if (part.startsWith("**") && part.endsWith("**")) {
+                            {tokens.map((token, tIdx) => {
+                              if (token.startsWith("**") && token.endsWith("**")) {
                                 return (
-                                  <strong key={pIdx} className="font-bold">
-                                    {part.slice(2, -2)}
+                                  <strong key={tIdx} className="font-bold">
+                                    {token.slice(2, -2)}
                                   </strong>
                                 );
                               }
-                              return part;
+                              const linkMatch = token.match(/^\[(.*?)\]\((.*?)\)$/);
+                              if (linkMatch) {
+                                const [, label, url] = linkMatch;
+                                const isExternal =
+                                  url.startsWith("http") ||
+                                  url.startsWith("mailto:") ||
+                                  url.startsWith("tel:");
+                                return (
+                                  <a
+                                    key={tIdx}
+                                    href={url}
+                                    target={isExternal ? "_blank" : undefined}
+                                    rel={isExternal ? "noreferrer" : undefined}
+                                    className="underline decoration-brand/60 hover:decoration-brand text-brand-text font-semibold transition"
+                                  >
+                                    {label}
+                                  </a>
+                                );
+                              }
+                              return token;
                             })}
                           </p>
                         );
