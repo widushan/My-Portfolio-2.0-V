@@ -8,6 +8,7 @@ import Resume from "@/components/Resume";
 import Services from "@/components/Services";
 import Stats from "@/components/Stats";
 import Testimonials from "@/components/Testimonials";
+import ChatBot from "@/components/chatbot/ChatBot";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <ChatBot />
     </>
   );
 }
