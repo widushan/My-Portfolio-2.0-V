@@ -77,7 +77,13 @@ export default function Contact() {
               ))}
             </ul>
             <SocialLinks className="mt-8" />
-            <a href={site.cv} download className={`${btnOutline} mt-8`}>
+            <a
+              href={site.cv}
+              download="C.A.P.K_Widushan_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${btnOutline} mt-8`}
+            >
               Download CV
             </a>
           </div>

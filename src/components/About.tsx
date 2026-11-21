@@ -27,7 +27,13 @@ export default function About() {
             <a href="#contact" className={btnPrimary}>
               Hire Me
             </a>
-            <a href={site.cv} download className={btnOutline}>
+            <a
+              href={site.cv}
+              download="C.A.P.K_Widushan_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={btnOutline}
+            >
               Download CV
             </a>
           </div>

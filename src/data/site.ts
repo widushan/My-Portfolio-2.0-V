@@ -13,7 +13,7 @@ export const site = {
   cv: "/cv.pdf",
   images: {
     hero: "/images/profile.png",
-    about: "/images/about_new.jpg",
+    about: "/images/about_new2.jpg",
   },
   socials: {
     linkedin: "https://www.linkedin.com/in/pasindu-widushan-b9b329397/",

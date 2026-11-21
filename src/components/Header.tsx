@@ -67,7 +67,13 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href={site.cv} download className={`${btnOutline} hidden sm:inline-flex`}>
+          <a
+            href={site.cv}
+            download="C.A.P.K_Widushan_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${btnOutline} hidden sm:inline-flex`}
+          >
             Download CV
           </a>
           <ThemeToggle />
@@ -99,7 +105,13 @@ export default function Header() {
               </li>
             ))}
             <li className="py-3 sm:hidden">
-              <a href={site.cv} download className={btnOutline}>
+              <a
+                href={site.cv}
+                download="C.A.P.K_Widushan_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={btnOutline}
+              >
                 Download CV
               </a>
             </li>
